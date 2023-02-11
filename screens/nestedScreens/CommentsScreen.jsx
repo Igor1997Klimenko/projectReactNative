@@ -4,8 +4,7 @@ import {
   View, 
   SafeAreaView,
   FlatList,
-  Text,
-  Image } from "react-native";
+  Text } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { styles } from './Nested.styles';
 import { useState, useEffect } from "react";
@@ -26,10 +25,11 @@ const CommentsScreen = ({ route }) => {
   const createComments = async () => {
     const postsCommentsCollection = collection(db,`posts/${postId}/comments`); 
     await addDoc(postsCommentsCollection, { comment, nickName });
+    setComment('');
   };
 
   const getAllPosts = async () => {
-    const commentsCollection = collection(db,`posts/${postId}/comments`)
+    const commentsCollection = await collection(db,`posts/${postId}/comments`)
 
     return onSnapshot(
       commentsCollection,
@@ -58,6 +58,7 @@ const CommentsScreen = ({ route }) => {
       <View style={styles.containerComment}>
         <View>
           <TextInput 
+            value={comment}
             onChangeText={setComment} 
             placeholder="Comment..." 
             style={styles.commentText}

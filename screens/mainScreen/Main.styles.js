@@ -72,4 +72,21 @@ export const styles = StyleSheet.create({
   publicText: {
     color: '#BDBDBD',
   },
+
+  imgPosts: {
+    height: 240,
+    backgroundColor: '#F6F6F6',
+    marginTop: 40,
+    borderRadius: 16,
+  },
+
+  nameProfile: {
+    paddingTop: 30,
+    fontWeight: '500',
+    fontSize: 30,
+    lineHeight: 35,
+    textAlign: 'center',
+    letterSpacing: '0.01em',
+    color: '#212121',
+  }
 })

@@ -46,15 +46,15 @@ const addPhoto = async () => {
 const publicPhoto = () => {
   uploadPostToServer();
   navigation.navigate('Publications');
+  setComment('');
+  setCityLocation('');
 }
 
 const uploadPostToServer = async () => {
   const photo = await uploadPhotoToServer();
-
-  const createPost = await addDoc(collection(db, 'posts'), {
+  await addDoc(collection(db, 'posts'), {
     photo, comment, cityLocation, location: location.coords, userId, nickName
   });
-  console.log(createPost)
 }
 
 const uploadPhotoToServer = async () => {
@@ -84,6 +84,7 @@ const uploadPhotoToServer = async () => {
 
       <View>
         <TextInput 
+          value={comment}
           onChangeText={setComment}
           style={styles.name}
           placeholder='Название...'
@@ -93,6 +94,7 @@ const uploadPhotoToServer = async () => {
       <View style={{position: 'relative'}}>
       <EvilIcons style={styles.locationIcons} name="location" />
         <TextInput 
+          value={cityLocation}
           onChangeText={setCityLocation}
           style={styles.nameLocation}
           placeholder='Местность...'

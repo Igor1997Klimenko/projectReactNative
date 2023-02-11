@@ -100,18 +100,17 @@ export const styles = StyleSheet.create({
   },
 
   commentsContainer: {
-    width: '100%',
     paddingTop: 24,
     marginHorizontal: 16,
     flexDirection: 'row',
   },
 
   commentsBlog:{
+    width: '84%',
     color: '#212121',
     fontSize: 13,
     lineHeight: 18,
     backgroundColor: 'rgba(0, 0, 0, 0.03)',
-    borderWidth: 1,
     borderRadius: 6,
     paddingHorizontal: 16,
     paddingTop: 16,
