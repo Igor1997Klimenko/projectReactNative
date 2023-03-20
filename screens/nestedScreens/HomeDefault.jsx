@@ -4,9 +4,11 @@ import {styles} from '../nestedScreens/Nested.styles';
 import { EvilIcons, Feather } from '@expo/vector-icons';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import { useSelector } from "react-redux";
 
 const HomeDefault = ({ navigation }) => {
-  const [posts, setPosts] = useState([]);
+  const [ posts, setPosts ] = useState([]);
+  const { nickName } = useSelector(state => state.auth)
 
 const fetchPost = async () => {
   await getDocs(collection(db, 'posts'))
@@ -23,11 +25,12 @@ useEffect(() => {
 
   return(
     <View style={styles.container}>
+      <Text>{nickName}</Text>
       <FlatList 
         style={styles.collectionImages}
         data={posts}
         keyExtractor={(item, idx) => idx.toString()}
-        renderItem={({item}) => (
+        renderItem={({item}) => ( 
           <View>
             <Image 
               sourse={{uri: item.photo}}

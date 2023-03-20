@@ -17,9 +17,9 @@ import {styles} from './Auth.styles';
 import useTogglePasswordVisibility from '../../hooks/useTogglePasswordVisibility';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-// redux
 import { authSignUpUser } from "../../redux/auth/authOperations";
 import { useDispatch } from "react-redux";
+import AvatarAuth from "../../components/AvatarAuth";
 
 const initialState = {
     email: '',
@@ -72,9 +72,9 @@ const RegistrationScreen = ({navigation}) => {
         <ImageBackground style={styles.image} source={require('../../assets/images/dream.jpg')}>
           <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
             <View style={styles.homeRegist}>
+            <AvatarAuth/>
                 <View style={isShowAndDimensions}>
                     <Text style={styles.textRegister}>SignOut</Text>
-
                         <View>
                         <TextInput 
                             style={ styles.input } 

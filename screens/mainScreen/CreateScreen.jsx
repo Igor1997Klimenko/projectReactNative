@@ -46,8 +46,6 @@ const addPhoto = async () => {
 const publicPhoto = () => {
   uploadPostToServer();
   navigation.navigate('Publications');
-  setComment('');
-  setCityLocation('');
 }
 
 const uploadPostToServer = async () => {
